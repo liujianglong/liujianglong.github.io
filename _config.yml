@@ -33,9 +33,9 @@ disqus:
 active: 博客
 
 # 首页除了最新文章外显示分类
-# cates: 
+cates: 
 #  - Optimization
-#  - LaTeX
+  - Blog
 
 # 中文本地化
 locals:

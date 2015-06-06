@@ -2,7 +2,7 @@
 layout: post
 title: 第一篇博客
 category: 博客
-tags:
+tags:Blog
 keywords:
 description:
 ---
