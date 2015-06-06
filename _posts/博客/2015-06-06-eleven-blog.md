@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 第一篇博客
-category: 博客
-tags:Blog
+category: 技术
+tags: Android
 keywords:
 description:
 ---

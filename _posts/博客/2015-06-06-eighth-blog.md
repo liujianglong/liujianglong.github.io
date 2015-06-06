@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 第十七篇博客
-category: 博客
-tags:
+category: 技术
+tags: Android
 keywords:
 description:
 ---
