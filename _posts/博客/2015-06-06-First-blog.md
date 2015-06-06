@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 第一篇博客
-category: blog
+category: 博客
 tags:
 keywords:
 description:
