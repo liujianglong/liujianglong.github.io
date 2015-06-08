@@ -30,12 +30,12 @@ disqus:
   shortname: codeliu
 
 # 主题设置，自动激活某个标签
-active: 技术
+active: 翻译
 
 # 首页除了最新文章外显示分类
-cates: 
-  - Skill
-  - Android
+# cates: 
+#  - Skill
+#  - Android
 
 # 中文本地化
 locals:
