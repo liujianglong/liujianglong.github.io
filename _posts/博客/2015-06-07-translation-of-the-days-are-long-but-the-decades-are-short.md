@@ -1,19 +1,19 @@
 ---
 layout: post
-title: the days are long but the decades are short
+title: The days are long but the decades are short
 category: 翻译
 tags: SamAltman
 keywords: 
 description:
 ---
 
-![1](/public/img/food/yc_logo.jpg)
+![1](/public/img/food/Sam_Altman.png)
 
 ### 说明
 
-最初是在Hacker News看到的这篇文章，觉得很不错，就下载下来想找个时间翻译一下。这几天在看YC在斯坦福大学开设的关于如何创业的公开课，从里面认识了YC的现任CEO Sam Altman，感觉有点像电影《社交网络》里面的马克扎克伯格。同时昨天终于搭建好了个人博客，想着第一篇写点什么，很自然的想到了之前保存着的这篇文章，重新打开，结果发现作者竟然就是**Sam Altman**，好吧，那就拿来翻译一下当做第一篇博客吧。
+最初是在Hacker News看到的这篇文章，觉得很不错，就下载下来想找个时间翻译一下。这几天在看YC在斯坦福大学开设的关于如何创业的公开课，从里面认识了YC的现任CEO Sam Altman，感觉有点像电影《社交网络》里面的马克扎克伯格。同时昨天终于搭建好了个人博客，想着第一篇写点什么，很自然的想到了之前保存着的这篇文章，重新打开，结果发现作者竟然就是[**Sam Altman**](http://en.wikipedia.org/wiki/Sam_Altman)，好吧，那就拿来翻译一下当做第一篇博客吧。
 
-### by: [Sam Altman](http://blog.samaltman.com/the-days-are-long-but-the-decades-are-short)
+### 原文地址: [The days are long but the decades are short](http://blog.samaltman.com/the-days-are-long-but-the-decades-are-short)
 
 *上一周我30岁了。我的一个朋友问我，在过去十年中我是否领悟到一些值得传递下去的人生建议。我多少有点犹豫，因为我觉得这种建议通常都看起来有点空洞。但是我还是整理了一下，这是我的回答：*
 
