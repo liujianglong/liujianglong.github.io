@@ -7,7 +7,7 @@ keywords:
 description:
 ---
 
-![1](/public/img/food/Sam_Altman.png)
+![1](/public/img/translation/Sam_Altman.png)
 
 ### 说明
 
