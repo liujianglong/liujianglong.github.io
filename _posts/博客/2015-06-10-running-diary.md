@@ -7,7 +7,7 @@ keywords:
 description:
 ---
 
-![1](/public/img/life/running.png)
+![1](/public/img/life/running.jpg)
 
 ### 说明
 
