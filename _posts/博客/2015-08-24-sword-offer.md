@@ -106,7 +106,6 @@ description:
 
 #### 5. 栈和队列：用两个栈实现队列
 ###### 题目描述：用两个栈实现一个队列。队列的声明如下，请实现它的两个函数appendTail和deleteHead，分别完成在队列尾部插入结点和在队列头部删除结点的功能。
-{% highlight java linenos %}
 	public class Queue{
 		private Stack<Integer> stack1=new Stack<Integer>();
 		private Stack<Integer> stack2=new Stack<Integer>();
@@ -126,8 +125,210 @@ description:
 		}
 	}
 
-#### 6. 栈和队列：用两个栈实现队列
-###### 题目描述：用两个栈实现一个队列
+#### 8. 查找和排序：旋转数组的最小数字
+###### 题目描述：把一个数组最开始的若干元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的旋转，输出旋转数组的最小元素。例如数组{3，4，5，1，2}为{1，2，3，4，5}的一个旋转，该数组的最小值为1。
+
+	public int minNum(int[] array, int fromIndex){
+        if(array==null || array.length==0)
+            return 0;
+        if(array.length==1)
+            return array[0];
+
+        int left=fromIndex;
+        int right=array.length-1;
+        if(array[left]<array[right])
+            return array[left];
+        
+        while(array[left]>=array[right]){
+            if(right-left==1)
+                return array[right];
+            int mid=(left+right)/2;
+            if(array[mid]>array[left])
+                left=mid;
+            else if(array[mid]<array[right])
+                right=mid;
+            else
+               return minNum(array, fromIndex+1);
+        }
+        return array[right];
+    }
+
+
+#### 9. 递归和循环：斐波那契数列(1)
+###### 题目描述：写一个函数，输入n，求斐波那契数列的第n项。
+
+	//循环解法：
+	public int fib(int n){
+		if(n<=1)
+			return n;
+		int fib_1=1, fib_2=0;
+		int fibN=0;
+		for(int i=2; i<=n; i++){
+			fibN=fib_1+fib_2;
+			fib_2=fib_1;
+			fib_1=fibN;
+		}
+		return fibN;
+	}
+
+#### 10. 递归和循环：斐波那契数列(2)-跳台阶
+###### 题目描述：一个青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少跳法。
+
+	//递归解法（效率较低，可改用上面循环解法）
+	 public int jumpFloor(int n) {
+		if(n<=2)
+            return n;
+        return jumpFloor(n-1)+jumpFloor(n-2);
+    }
+
+#### 11. 递归和循环：斐波那契数列(3)-矩形覆盖
+###### 题目描述：我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+
+	//递归解法（效率较低，可改用上面循环解法）
+	 public int rectCover(int n) {
+		if(n<=2)
+            return n;
+        return rectCover(n-1)+rectCover(n-2);
+    }
+
+#### 12. 位运算：二进制中1的个数
+###### 题目描述：请实现一个函数，输入一个整数，输出该数二进制表示中1的个数。例如把9表示成二进制位1001，有2位是1.因此输入9，该函数输出2。
+
+	public int numOf1(int n){
+		int count=0;
+		while(n!=0){
+			n&=n-1;
+			count++;
+		}
+		return count;
+	}
+
+	//举一反三1：如何判断一个数是否是2的整数次方？
+	public boolean isPowerOf2(int n){
+		if(n&(n-1)==0)	
+			return true;
+		return false;
+	}
+	
+	//举一反三2：给定两个整数m和n，计算需要改动m的二进制表示中的多少位才能得到n，比如10的二进制表示为1010, 13的二进制表示为1101，则需要3位。
+	public int numOfBitToChange(int m, int n){
+		int temp=n^m;
+		int count =0;
+		while(temp!=0){
+			temp&=temp-1;
+			count++;
+		}
+		return count;
+	}
+
+#### 13. 代码的完整性：数值的整数次方
+###### 题目描述：实现函数 double power(double base, int exponent), 求base的 exponent次方。 不得使用库函数， 同时不需要考虑大数问题。
+
+	//注意base是否为零； 注意exponent是否为负数
+	public double power(double base, int exponent){
+		if(Math.abs(base-0.0)<0.000001)
+			return 0;
+		int result=1.0;
+		int e=Math.abs(exponent);
+		for(int i=0; i<e; i++)
+			result*=base;
+		if(exponent<0)
+			result=1.0/result;
+		return result;
+	}
+
+#### 14. 代码的完整性：打印1到最大的n位数
+###### 题目描述：输入数字n，按顺序打印出从1到最大n位十进制数。比如输入3，则打印1，2，3一直到999。
+
+
+#### 15. 代码的完整性：在O(1)时间删除链表结点
+###### 题目描述： 给定单向链表的头结点和一个结点指针，定义一个函数在O(1)时间删除该结点。
+
+	class ListNode{
+		int val;
+		ListNode next;
+		public ListNode(int x){val=x;}
+	}
+
+	public  ListNode deleteNode(ListNode head, ListNode target) {
+		if (head == null || target == null)
+			return head;
+		//target不是尾结点
+		if(target.next!=null){
+			target.val = target.next.val;
+			target.next = target.next.next;
+		}
+		//target是尾结点，而且链表只有一个结点
+		else if (head == target)
+				return head.next;
+		//target是尾结点，而且链表有多个结点
+		else{
+			ListNode node = head;
+			while (node.next != target)
+				node = node.next;
+			node.next = null;
+		}
+		return head;
+	}
+
+#### 16. 代码的完整性：调整数组顺序使奇数位于偶数前面
+###### 题目描述： 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+
+	public void reOrderArray(int[] array) {
+		int odd = 0;
+		int even = array.length - 1;
+		while (odd < even) {
+			while (array[odd] % 2 == 1)
+				odd++;
+			while (array[even] % 2 == 0)
+				even--;
+			if (odd < even) {
+				int temp = array[odd];
+				array[odd] = array[even];
+				array[even] = temp;
+			}
+		}
+		for (int i = 0; i < array.length; i++)
+			System.out.println(array[i]);
+	}
+
+#### 17. 代码的鲁棒性：链表中倒数第K个结点
+###### 题目描述： 输入一个链表，输出该链表中倒数第K个结点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾结点是倒数第1个结点。例如一个链表有6个结点，从头结点开始它们的值依次是1，2，3，4，5，6。这个链表的倒数第3个结点是值为4的结点。
+
+	public ListNode findKthToTail(ListNode head,int k) {
+        if(head==null || k<=0)
+            return null;
+
+		ListNode fast = head, slow = head;
+		for (int i = 0; i < k - 1; i++) {
+			if (fast.next != null)
+				fast = fast.next;
+            else
+                return null;
+		}
+
+		while (fast.next != null) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+		return slow;
+    }
+	
+#### 18. 代码的鲁棒性：反转链表
+###### 题目描述： 定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
+
+	 public ListNode reverseList(ListNode head) {
+        if(head==null) return null;
+		ListNode newHead=new ListNode(head.val);
+        while(head.next!=null){
+            head=head.next;
+            ListNode node=new ListNode(head.val);
+            node.next=newHead;
+            newHead=node;
+        }
+        return newHead;
+    }
+
 
 	
 
