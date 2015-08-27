@@ -10,7 +10,7 @@ description:
 
 ### 说明
 
-最近在准备面试，这里总结一下剑指Offer里面的题目。
+最近在看剑指Offer准备面试，里面的算法都是用C实现的，这里总结了一下剑指Offer里面的题目，并用Java实现了。
 	
 ##
 
@@ -329,6 +329,260 @@ description:
         return newHead;
     }
 
-
+#### 19. 代码的鲁棒性：合并两个排序的列表
+###### 题目描述： 输入两个递增排序的链表，合并这两个链表并使新链表中的结点仍然是按照递增排序的。链表结点的定义如下：
 	
+	class ListNode{
+		int val;
+		ListNode next;
+	}
+	
+	//解法一：常规解法
+	public ListNode Merge(ListNode list1,ListNode list2) {
+        if(list1==null) return list2;
+        if(list2==null) return list1;
+        ListNode node=new ListNode(0);
+        ListNode head=node;
+        while(list1!=null && list2!=null){
+            if(list1.val<=list2.val){
+                node.next=list1;
+                list1=list1.next;
+            }else{
+                node.next=list2;
+                list2=list2.next;
+            }
+            node=node.next;
+        }
+        
+        while(list1!=null){
+            node.next=list1;
+            list1=list1.next;
+            node=node.next;
+        }
+        
+         while(list2!=null){
+            node.next=list2;
+            list2=list2.next;
+            node=node.next;
+        }
+        return head.next;
+    }
+
+	//解法二：递归解法
+
+    public ListNode Merge(ListNode list1,ListNode list2) {
+        if(list1==null) return list2;
+        if(list2==null) return list1;
+		ListNode head=null;
+        if(list1.val<=list2.val){
+            head=list1;
+            head.next=Merge(list1.next, list2);
+        }else{
+            head=list2;
+            head.next=Merge(list1,list2.next);
+        }
+        return head;
+    }
+
+#### 19. 代码的鲁棒性：树的子结构
+###### 题目描述： 输入两棵二叉树A和B，判断B是不是A的子结构。二叉树结点的定义如下：
+
+	class BinaryTreeNode{
+		int val;
+		BinaryTreeNode left;
+		BinaryTreeNode right;
+	}
+
+    public boolean hasSubtree(TreeNode root1,TreeNode root2) {
+        if(root2==null || root1==null) return false;
+		boolean result=false;
+        if(root1.val==root2.val)
+            result= isBPartOfA(root1, root2);
+        if(!result)
+            result= hasSubtree(root1.left, root2);
+        if(!result)
+            result= hasSubtree(root1.right, root2);
+        return result;
+    }
+    
+    private boolean isBPartOfA(TreeNode a, TreeNode b){
+        if(b==null)
+            return true;
+        if(a==null)
+            return false;
+        if(a.val!=b.val)
+            return false;
+        return isBPartOfA(a.left, b.left) && isBPartOfA(a.right, b.right);
+    }
+
+#### 20. 解决面试题的思路：二叉树的镜像
+###### 题目描述： 请完成一个函数，输入一个二叉树，该函数输出它的镜像。
+
+	class TreeNode{
+		int val;
+		TreeNode left;
+		TreeNode right;
+		TreeNode(int val){this.val=val;}
+	}
+
+    public void Mirror(TreeNode root) {
+        if(root==null) return;
+        if(root.left==null && root.right==null) return;
+        
+        TreeNode temp=root.left;
+        root.left=root.right;
+        root.right=temp;
+        
+        Mirror(root.left);
+        Mirror(root.right);
+    }
+
+#### 21. 解决面试题的思路：顺时针打印矩阵
+###### 题目描述： 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
+
+    public ArrayList<Integer> printMatrix(int [][] matrix) {
+		ArrayList<Integer> list=new ArrayList<Integer>();
+		if(matrix==null || matrix.length==0) return list;
+        
+        int rows=matrix.length, cols=matrix[0].length;
+        int start=0;
+        while(rows>start*2 && cols>start*2){
+            list.addAll(printMatrixCircle(matrix, rows, cols, start));
+            start++;
+        }
+        return list;
+    }
+    
+    //打印某一圈
+    private ArrayList<Integer> printMatrixCircle(int [][] matrix, int rows, int cols, int start){
+        ArrayList<Integer> list=new ArrayList<Integer>();
+        int endX=cols-1-start;
+        int endY=rows-1-start;
+        //从左向右打印
+        for(int i=start; i<=endX; i++){
+            list.add(matrix[start][i]);
+        }
+        //从上到下打印
+        if(start<endY){
+            for(int i=start+1; i<=endY; i++){
+                list.add(matrix[i][endX]);
+            }
+        }
+        //从右到左打印
+        if(start<endX && start<endY){
+            for(int i=endX-1; i>=start;i--){
+                list.add(matrix[endY][i]);
+            }
+        }
+        //从下到上打印
+        if(start<endX && start<endY-1){
+            for(int i=endY-1; i>=start+1; i--){
+                list.add(matrix[i][start]);
+            }
+        }
+        return list;
+    }
+
+#### 22. 解决面试题的思路：包含min函数的栈
+###### 题目描述： 定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min函数。在该栈中，调用min、push及pop的时间复杂度都是O(1)。
+
+		public class MinStack {
+			Stack<Integer> stack=new Stack<Integer>();
+    		Stack<Integer> minStack=new Stack<Integer>();
+    	
+    		public void push(int value) {
+    		    stack.push(value);
+    		    if(minStack.size()==0 || value< minStack.peek())
+    		        minStack.push(value);
+    		    else
+    		        minStack.push(minStack.peek());
+    		}
+    
+    		public void pop() {
+    		    stack.pop();
+    		    minStack.pop();
+    		}
+    
+    		public int top() {
+    		    return stack.peek();
+    		}
+    
+    		public int min() {
+    		    return minStack.peek();
+    	}
+	}
+
+#### 23. 解决面试题的思路：栈的压入、弹出序列
+###### 题目描述： 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出序列。加入压入栈的所有数字均不相等。
+
+	public boolean IsPopOrder(int [] pushA,int [] popA) {
+        if(pushA==null || popA==null || pushA.length==0 || popA.length==0) 
+            return false;
+        
+        if(pushA.length!=popA.length) 
+            return false;
+        
+        Stack<Integer> stack=new Stack<Integer>();
+      	int popIndex=0;
+        int pushIndex=0;
+        
+        while(popIndex<popA.length && pushIndex<pushA.length){
+            while(pushIndex<pushA.length && (stack.empty() || stack.peek()!=popA[popIndex]))
+                stack.push(pushA[pushIndex++]);
+             while((!stack.empty() && popIndex<popA.length)&& stack.peek()==popA[popIndex]){
+                stack.pop();
+                popIndex++;
+            }
+        }
+        if(popIndex==popA.length)
+        	return true;
+        return false;
+    }
+
+#### 24. 解决面试题的思路：从上往下打印二叉树
+###### 题目描述： 从上往下打印出二叉树的每个结点，同一层的结点按照从左到右的顺序打印。
+
+    public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
+        ArrayList<Integer> list=new ArrayList<Integer>();
+        if(root==null) return list;
+        
+        Queue<TreeNode> queue=new ArrayDeque<TreeNode>();
+        queue.add(root);
+        
+        while(queue.size()!=0){
+            if(queue.peek().left!=null)
+                queue.add(queue.peek().left);
+            if(queue.peek().right!=null)
+                queue.add(queue.peek().right);
+            list.add(queue.remove().val);
+        }
+        return list;
+    }
+
+#### 24. 解决面试题的思路：二叉搜索树的后序遍历序列
+###### 题目描述： 输入一个整数数组，判断该数组是不是某二叉搜索树的后续遍历的结果。如果是则返回true，否则返回false。假设输入的数组的任意两个数字都互不相同。
+
+    public boolean VerifySquenceOfBST(int [] sequence) {
+		int n = sequence.length;
+		if (sequence == null || n == 0)
+			return false;
+		int last = sequence[n - 1];
+		int i = 0;
+		for (; i < n - 1; i++) {
+			if (sequence[i] > last)
+				break;
+		}
+		for (int j = i; j < n - 1; j++) {
+			if (sequence[j] < last) 
+				return false;
+		}
+		boolean left = true, right = true;
+		if (i > 0)
+			left = VerifySquenceOfBST(Arrays.copyOfRange(sequence, 0, i));
+		if (n - 1 - i > 0)
+			right = VerifySquenceOfBST(Arrays.copyOfRange(sequence, i, n - 1));
+		return left && right;
+    }
+
+
 
