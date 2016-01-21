@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The days are long but the decades are short
-category: 翻译
+category: blog-cn
 tags: SamAltman
 keywords: 
 description:

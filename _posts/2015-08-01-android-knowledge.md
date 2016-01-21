@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Android知识点总结
-category: 技术
+category: blog-cn
 tags: Android 面试
 keywords: 
 description:
