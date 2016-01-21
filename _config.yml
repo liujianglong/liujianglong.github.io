@@ -1,46 +1,30 @@
-permalink: /:year/:month/:day/:title.html
-paginate: 10
-markdown: redcarpet
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
 
-# 作者信息
-author: 
-  name: CodeLiu
-  email: liujianglong7@163.com
-  link: http://codeliu.com
-  weibo: http://www.weibo.com/liujianglong
-  github: https://github.com/liujianglong
+# Permalinks
+permalink:        pretty
 
-# 站点信息
-title: CodeLiu的博客
-description: My personal blog
-url: http://codeliu.com
-rss_url: /pages/atom.xml
+# Setup
+title:            cellier
+tagline:          ''
+description:      '『he looks like a dog so』 『because he is a PM』'
+url:              http://cellier.me
 
-# gavatar头像及Favicon
-gavatar: /public/img/me.png
-favicon: /public/img/me.png
+author:
+  name:           'cellier'
+  email:          cellier@mail.com
 
-# google analytics 设置
-ga:
-  id: UA-63814051-1 
-  url: codeliu.com
+paginate:      10
 
-# disqus 设置
-disqus:
-  shortname: codeliu
+# Custom vars
+version:          0.0.3
 
-# 主题设置，自动激活某个标签
-active: 翻译
+# Comments
 
-# 首页除了最新文章外显示分类
-# cates: 
-#  - Skill
-#  - Android
+comments :
+    provider : duoshuo
+    duoshuo :
+          short_name : cellier-me
 
-# 中文本地化
-locals:
-  tags: 标签
-  about: 关于
-  newest: 最新文章
-  archive: 归档
-  main: 首页
+
