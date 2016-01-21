@@ -1,7 +1,6 @@
 ﻿---
 layout: post
 title: 测试用的博客
-category: 技术
 tags: 数据结构 算法 读书笔记
 keywords: 
 description:
