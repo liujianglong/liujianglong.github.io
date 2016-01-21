@@ -6,14 +6,14 @@ highlighter:      pygments
 permalink:        pretty
 
 # Setup
-title:            cellier
+title:            CodeLiu
 tagline:          ''
 description:      '『he looks like a dog so』 『because he is a PM』'
-url:              http://cellier.me
+url:              www.codeliu.com
 
 author:
-  name:           'cellier'
-  email:          cellier@mail.com
+  name:           'CodeLiu'
+  email:          liujianglong7@163.com
 
 paginate:      10
 
