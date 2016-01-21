@@ -1,6 +1,7 @@
 ﻿---
 layout: post
 title: The days are long but the decades are short
+category: 
 tags: SamAltman
 keywords: 
 description:
