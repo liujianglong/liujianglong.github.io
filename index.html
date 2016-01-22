@@ -4,7 +4,6 @@ title: Home
 ---
 
 <br>
-<!-- archive -->
 <div class="posts">
 {% assign post_year1 = "" %}
 
@@ -14,5 +13,6 @@ title: Home
 <a href="{{ post.url }}" target="_self"> 
 {{ post.title }}<span class="pull-right">{{ post.date | date:'%m月%d日' }}</span>
 </a>
+<br>
 {% endfor %}
 </div>
