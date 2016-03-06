@@ -7,7 +7,7 @@ keywords:
 description:
 ---
 
-![Sam Altman](/img/Sam_Altman.png)
+![Sam Altman](http://easyread.ph.126.net/wrkmNJkRF-_bfyvexIfk9w==/7806650204955342606.jpg)
 
 ### 说明
 
