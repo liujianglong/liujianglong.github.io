@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Android知识点总结
+title: 《第一行代码》读书笔记
 category: blog-cn
 tags: Android 面试
 keywords: 
@@ -11,7 +11,6 @@ description:
 ### 说明
 
 最近在准备校招的面试，为了准备的系统一点，又看了一遍郭霖大神的《第一行代码》，看的过程做了一些笔记，誊抄到这里，方便自己复习。
-##
 
 
 ### 一. Android系统架构
