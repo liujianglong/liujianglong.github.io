@@ -12,26 +12,26 @@ description:
 
 ### adb
 
->1. 查看当前运行的模拟器：adb devices
+* 查看当前运行的模拟器：adb devices
 
->2. 从电脑复制文件到手机：adb push pathInPC pathInPhone  
+* 从电脑复制文件到手机：adb push pathInPC pathInPhone  
  例如：adb push d:\abc.txt /sdcard/
 
->3. 从手机复制文件到电脑：adb pull pathInPhone pathInPC  
+* 从手机复制文件到电脑：adb pull pathInPhone pathInPC  
  例如：adb pull /sdcard/abc.txt d:\
 
->4. 启动模拟器的shell窗口 adb shell
+* 启动模拟器的shell窗口 adb shell
 
->5. 安装apk adb [-r] install abc.apk  
+* 安装apk adb [-r] install abc.apk  
  [-r]表示重新安装
 
->6. 卸载apk adb uninstall abc.apk
+* 卸载apk adb uninstall abc.apk
 
 ### sqlite3
 
->1.  .databases 查看当前的数据库
->2.  .tables 查看当前数据库的数据表
->3.  .help 查看sqlite3支持的命令
+* .databases 查看当前的数据库
+* .tables 查看当前数据库的数据表
+* .help 查看sqlite3支持的命令
 
 
 
