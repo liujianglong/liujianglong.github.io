@@ -7,7 +7,7 @@ keywords:
 description:
 ---
 
-![1](/img/Sam_Altman.png)
+![Sam Altman](/img/Sam_Altman.png)
 
 ### 说明
 
