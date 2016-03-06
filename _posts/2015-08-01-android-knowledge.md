@@ -14,81 +14,64 @@ description:
 
 
 ### 一. Android系统架构
-
 >1. Linux内核层（Linux Kernel）——为硬件提供驱动
 >2. 系统运行库（Android runtime & Libraries）——Android特性支持+核心库+虚拟机
 >3. 应用框架层（Application Framework）——提供构建应用程序时，可能用到的API
 >4. 应用层（Application）应用程序
-	
 
 ### 二. 四大组件
-	
 >1. 活动（Activity）：程序界面
 >2. 服务（Service）：不需要与用户交互，在后台运行的组件
 >3. 广播接收器（Broadcast Receiver）：允许应用程序接收到各种广播，比如短信，电话...
 >4. 内容提供者（Content Provider）：为应用程序的数据共享提供了可能
-	
 
 ### 三.Activity
 
 #### 1. 如何标识应用的首界面？ 
-
 >1. 设置ACTION为MAIN: <action android:name="android.intent.ACTION.MAIN"/>
 >2. 设置Category为LAUNCHER:<category android:name="android.intent.category. LAUNCHER"/>
-	
 
 #### 2. 如何向下一个Activity传递数据？
-
 >利用Intent，putExtra（）函数
 
 #### 3. 如何向上一个Activity传递数据？
-
 >在上一个Activity利用startActivityForResult()，并且重写onActivityResult（）方法，在下一个Activity中用setResult（）方法传递数据
 
 #### 4. Activity的生命周期？
-
 >1. onCreate():新建Activity，不可见
 >2. onStart():开始Activity，可见，但不可交互
 >3. onResume():进入运行状态，可见，也可交互
 >4. onPause():进入暂停状态，部分可见，不可交互
 >5. onStop():进入停止状态，完全不可见
 >6. onDestroy():进入销毁状态
-	
 
 #### 5. Activity的管理？
 >Task（返回栈）
 
 #### 6. Activity被迫被系统回收时，如何保存临时数据？
-
 >重写onSaveInstanceState()方法，将数据保存在Bundle参数中，在onCreate()方法中，判断bundle参数是否为null，若不为null，则从中取出保存的参数
 
 #### 7. Activity的四种启动方式
-
 >1. standard:默认启动方式，每次启动都会创建该活动的一个新的实例
 >2. singleTop:若启动时，返回栈的栈顶为该Activity的实例，则直接使用该实例，不新建
 >3. singleTask：若启动时，返回栈内已有该Activity的实例，则该Activity实例以上的Activity全部出栈，直接使用该实例
 >4. singleInstance：启动时新建一个新的返回栈来管理这个Activity
 
 #### 8. 如何打印出某个界面对应的Activity名称（如何知道当前界面在哪一个活动）？
-
 >在Activity的onCreate()方法中，getClass().getSimpleName();
 
 #### 9. 如何随时随地的退出程序？
-
 >实现一个Activity管理类，用一个List保存所有的Activity实例，打开新的实例的时候，调用addActivity()方法，关闭Activity时调用removeActivity方法，退出程序时调用finishAll()方法。
 
 ### 四.布局&控件
 
 #### 1. 四大布局都有啥？
-
 >RelativeLayout, LinearLayout, FrameLayout, TableLayout
 
 #### 2. LinearLayout布局中，layout_gravity和gravity属性有啥不同？
-
 >layout_gravity指的是控件相对于父布局的位置，gravity指的是空间中的文字相对于控件的位置
 
 #### 3. 如何优化ListView的性能？
-
 >1. 在getView方法中，利用convertView进行Item布局的重用（省去了inflate方法）
 >2. 利用内部类ViewHolder进行控件的重用（省去了findViewById()）
 
@@ -99,11 +82,9 @@ description:
 >4. dpi：像素密度，屏幕每英寸所包含的像素数
 >5. sp：scaled pixels，主要用于描述字体大小，1sp=（dpi/72）pt
 
-
 ### 五.广播
 
 #### 1. 广播分为哪几种，有什么区别？
-
 >1. 标准广播：一种异步执行的广播，广播发出后，所有的广播接收器几乎同一时间接收到广播，它们之间没有先后关系，该广播也是无法截断的
 >2. 有序广播：一种同步执行的广播，广播发出后，同一时刻只有一个广播接收器能够接收到该广播，当该广播接收器处理完后，广播继续传播。优先级高的广播接收器先接收到广播消息，还可以截断正在传递的广播。
 
@@ -121,7 +102,6 @@ description:
 ### 六.数据持久化
 
 #### 1. 数据的持久化存储方式有哪几种，分别适用于存储哪些数据？
-
 >1. 文件存储，适用于存储一些简单的文本或二进制文件
 >2. SharedPreferences，适用于存储一些键值对，比如账号，密码等（为.xml格式文件）
 >3. 数据库存储（SQLite），适用于存储负载的关系型数据（为.db格式文件）
@@ -226,13 +206,3 @@ description:
 
 #### 4. Fragment的生命周期及相应的回调方法？
 >添加一个碎片——onAttach()——onCrate()——onCreateView()——onActivityCreated()——onStart()——onResume()——碎片激活——onPause()——onStop()——onDestroyView()——onDestroy——onDetach()——碎片销毁
-
-
-
-
-
-
-
- 
-
-
