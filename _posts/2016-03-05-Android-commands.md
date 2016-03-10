@@ -20,12 +20,19 @@ description:
 * 从手机复制文件到电脑：adb pull pathInPhone pathInPC  
  例如：adb pull /sdcard/abc.txt d:\
 
-* 启动模拟器的shell窗口 adb shell
+* 启动模拟器的shell窗口： adb shell
 
-* 安装apk adb [-r] install abc.apk  
+* 安装程序： adb [-r] install abc.apk  
  [-r]表示重新安装
 
-* 卸载apk adb uninstall abc.apk
+* 卸载程序: adb uninstall packageName
+
+* 查看帮助信息: adb help
+
+* 启动Activity：adb shell am start -n packageName/ClassName
+
+* 查看Log信息：adb logcat -s 签名
+
 
 ### sqlite3
 
