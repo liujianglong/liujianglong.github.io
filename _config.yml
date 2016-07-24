@@ -5,13 +5,13 @@ highlighter:      rouge
 permalink:        pretty
 
 # Setup
-title:            CodeLiu
+title:            Liu Jianglong
 tagline:          ''
 description:      ' Keep Focus '
 url:              www.codeliu.com
 
 author:
-  name:           'CodeLiu'
+  name:           'Liu Jianglong'
   email:          liujianglong7@163.com
 
 paginate:      10
