@@ -14,6 +14,6 @@ description:
 * 切换到root用户：sudo su 然后输入密码
 * 从root用户退出：exit
 * 将一个文件拷贝到另一个文件夹：cp -r filename path
-
+* 删除一个文件夹：rm -rf dirName
 
 
