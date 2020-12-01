@@ -4,15 +4,15 @@ permalink: /about/
 ---
 
 
-### 关于我
+### 关于AndroidHub
 
-研究僧，Android开发者，互联网产品爱好者，走在全栈的路上…
+致力于为初中级Android开发者的学习近点绵薄之力，推荐关注同名公众号。
 
 
 ### 联系我
 
-* 微博： [@Code_Liu](http://weibo.com/liujianglong)
-* 知乎： [CodeLiu](https://www.zhihu.com/people/codeliu)
+* 微信公众号： ####AndroidHub
+* 个人微信号： ####Captain77
 
 
 
