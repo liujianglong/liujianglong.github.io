@@ -39,6 +39,3 @@ description:
 * .databases 查看当前的数据库
 * .tables 查看当前数据库的数据表
 * .help 查看sqlite3支持的命令
-
-
-
