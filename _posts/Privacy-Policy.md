@@ -1,8 +1,8 @@
 ---
 layout: post
-title: The days are long but the decades are short
-category: blog-cn
-tags: SamAltman
+title: Privacy Policy
+category: privacy-policy
+tags: 
 keywords: 
 description:
 ---
