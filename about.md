@@ -6,13 +6,13 @@ permalink: /about/
 
 ### 关于 AndroidHub
 
-致力于为初中级Android开发者的学习近点绵薄之力，推荐关注同名公众号。
+Android 应用开发工作室，致力于开发精品应用。
 
 
-### 联系我
+### 联系我们
 
-* 微信公众号： AndroidHub
-* 个人微信号： Captain77
+* 邮  箱： bruceliu.dev@gmail.com
+* 微信号： iAboutCoder
 
 
 
